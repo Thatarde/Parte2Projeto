@@ -1,0 +1,426 @@
+@import url(content.css);
+
+/* Fonte diferente */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
+
+/* Variaveis das cores */
+:root {
+    --cinzaescuro: #212329;
+    --roxo: #6b2680;
+    --roxoclaro: #a34fbd;
+    --branco: #fff;
+    --cinzaclaro: #bfbfbd;
+}
+
+/* Reset e fonte*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Work Sans', Arial, sans-serif;
+    color: var(--texto-cinza);
+}
+
+/* Estilo menu */
+.nav-container {
+    width: 100%;
+    background: var(--cinzaescuro);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+#navbar-logo {
+    color: var(--branco);
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo do menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links {
+    color: var(--cinzaclaro);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links:hover {
+    color: var(--roxo);
+}
+
+/* Botao especial */
+.nav-links-btn {
+    background-color: var(--roxoclaro);
+    color: var(--branco);
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links-btn:hover {
+    background-color: var(--branco);
+    color: var(--roxoclaro);
+    border: 1px solid var(--roxoclaro);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo par telas pequenas */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 80px);
+        background-color: var(--cinzaescuro);
+        padding-top: 20px;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-links {
+        color: var(--branco);
+        font-size: 1.2rem;
+        padding: 10px 0;
+    }
+
+    .nav-links-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+
+    /* Botão de menu oculto*/
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--roxoclaro);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Animação do botão ativo */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Seções Sobre Nós e Fale Conosco */
+.sobre-nos,
+.fale-conosco {
+    background-color: var(--cinzaescuro);
+    color: var(--branco);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.sobre-nos h2,
+.fale-conosco h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.sobre-nos p,
+.fale-conosco p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .sobre-nos,
+    .fale-conosco {
+        padding: 30px 15px;
+    }
+
+    .sobre-nos h2,
+    .fale-conosco h2 {
+        font-size: 1.5rem;
+    }
+
+    .sobre-nos p,
+    .fale-conosco p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .main-content {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .main-img-container {
+        margin-top: 20px;
+    }
+
+    .main-btn {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+}
+
+/* Main Section Responsivo */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: var(--cinzaescuro);
+    padding-top: 80px; /* Evita sobreposição do menu fixo */
+}
+
+.main-content h1 {
+    font-size: 2.5rem;
+    color: var(--roxoclaro); /* Mantém a cor */
+}
+
+.main-content p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.main-btn {
+    font-size: 1rem;
+    background-color: var(--roxoclaro);
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    color: var(--branco);
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+.main-btn a {
+    position: relative;
+    z-index: 2;
+    color: var(--branco);
+    text-decoration: none;
+}
+
+/* Responsividade (telas pequenas) */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        padding-top: 80px; /* Evita o corte do título */
+        text-align: center;
+    }
+
+    .main-content {
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 10px; /* Adiciona espaço lateral */
+    }
+
+    .main-content h1 {
+        font-size: 2rem; /* Reduz o tamanho do texto */
+    }
+
+    .main-content p {
+        font-size: 1rem;
+    }
+
+    .main-btn {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+
+    .main-img-container {
+        margin-top: 20px;
+    }
+}
+
+/* Estilo da seção "Fale Conosco" */
+.fale-conosco {
+    background: linear-gradient(135deg, var(--roxo), var(--roxoclaro));
+    color: var(--branco);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.fale-conosco h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.fale-conosco p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+/* Responsividade da seção "Fale Conosco" */
+@media (max-width: 768px) {
+    .fale-conosco {
+        padding: 30px 15px;
+    }
+
+    .fale-conosco h2 {
+        font-size: 1.5rem;
+    }
+
+    .fale-conosco p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+/* Estilo da seção "Sobre Nós" */
+.sobre-nos {
+    background: var(--cinzaescuro); /* Fundo branco */
+    color: var(--branco); /* Texto em cinza escuro */
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--cinzaescuro); /* Linha de separação */
+}
+
+.sobre-nos h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.sobre-nos p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+/* Responsividade da seção "Sobre Nós" */
+@media (max-width: 768px) {
+    .sobre-nos {
+        padding: 30px 15px;
+    }
+
+    .sobre-nos h2 {
+        font-size: 1.5rem;
+    }
+
+    .sobre-nos p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+/* Botão "Iniciar Jornada" */
+.main-btn {
+    font-size: 1rem;
+    background-color: var(--roxoclaro); /* Cor consistente com o site */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    color: var(--branco);
+    margin-top: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.main-btn a {
+    color: var(--branco); /* Texto branco */
+    text-decoration: none;
+}
+
+.main-btn:hover {
+    background-color: var(--roxo); /* Muda para roxo escuro ao passar o cursor */
+    transform: scale(1.05); /* Efeito de leve aumento */
+}
+
+.main-btn:active {
+    background-color: var(--cinzaescuro); /* Fica mais escuro ao clicar */
+    transform: scale(0.95); /* Efeito de clique */
+}
+
+.hidden {
+    display: none;
+  }
+  
+  #signup-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #signup-popup form {
+    background-color: var(--branco);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #signup-popup button#close-popup {
+    background-color: var(--roxoclaro);
+    color: var(--branco);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
